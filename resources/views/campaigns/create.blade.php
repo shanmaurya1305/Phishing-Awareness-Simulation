@@ -37,6 +37,33 @@
                             @enderror
                         </div>
 
+                        <!-- Recipient Email -->
+                        <div class="form-group mb-3">
+                            <label for="recipient_email" class="form-label font-weight-semibold">
+                                Recipient Email
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control @error('recipient_email') is-invalid @enderror"
+                                id="recipient_email"
+                                name="recipient_email"
+                                value="{{ old('recipient_email') }}"
+                                placeholder="e.g. employee@example.com"
+                                required>
+
+                            <small class="form-text text-muted">
+                                Email address where the phishing simulation email will be sent.
+                            </small>
+
+                            @error('recipient_email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <!-- Phishing link -->
                         <div class="form-group mb-3">
                             <label for="phishing_link" class="form-label font-weight-semibold">Phishing Destination Link</label>
                             <input type="url" 
